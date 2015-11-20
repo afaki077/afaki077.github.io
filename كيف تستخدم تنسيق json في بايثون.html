@@ -32,7 +32,8 @@
 
 
 
-        <meta name="tags" contents="اهلا بالعالم" />
+        <meta name="tags" contents="json" />
+        <meta name="tags" contents="python" />
 
 
 			<meta property="og:locale" content="ar">
@@ -40,11 +41,11 @@
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
-	<meta property="og:url" content="/hl-bllm-mgmr-jdyd-m-pelican.html">
-	<meta property="og:title" content="اهلا بالعالم مغامرة جديدة مع pelican">
+	<meta property="og:url" content="/كيف تستخدم تنسيق json في بايثون.html">
+	<meta property="og:title" content="كيف تستخدم تنسيق json في بايثون">
 	<meta property="og:description" content="">
-	<meta property="og:image" content="/">
-	<meta property="article:published_time" content="2015-11-15 10:37:00+03:00">
+	<meta property="og:image" content="/http://i.imgur.com/9KEt0PL.png">
+	<meta property="article:published_time" content="2015-11-20 17:05:00+03:00">
 </head>
 
 <body>
@@ -75,15 +76,15 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/theme/images/post-bg.jpg')">
+        <header class="intro-header" style="background-image: url('http://i.imgur.com/9KEt0PL.png')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>اهلا بالعالم مغامرة جديدة مع pelican</h1>
+                        <h1>كيف تستخدم تنسيق json في بايثون</h1>
                         <span class="meta">نُشر بواسطة
                                 <a href="/author/ly-fky.html">علي فكي</a>
-                             <br><br>Sun 15 November 2015
+                             <br><br>Fri 20 November 2015
                         </span>
                         
                     </div>
@@ -98,16 +99,52 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <p>Hello world</p>
-<p>بعد الكثير من المماطلة والتكاسل قررت إنشاء مدونة  قمت أولاً بتجربة ووردبريس (والذي لم يرُق لي كثيراً) ، بعدها سمعت بـ <a href="https://getpelican.com">pelican</a>
- وهو مولد مواقع ثابتة (static site generator) وإستخدمت github pages لإستضافة الموقع.</p>
-<p>معظم محتوى هذه المدونة سيكون برمجي وربما بعض الخواطر الشخصية ، تقريبا هذه أول تجربة لي في التدوين لنرى كيف سيسير الأمر.</p>
-<p>الكود التالي مجرد تجربة لتلوين الشفرات.</p>
-<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>
-<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;World&quot;</span>
-<span class="n">z</span> <span class="o">=</span> <span class="s">&quot;!&quot;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+        <h2>ماهو json؟</h2>
+<p>كلمة json هي إختصار ل <code>JavaScript Object Notation</code> وهي طريقة للتعامل وتخزين البيانات وهي مدعومة من أغلب لغات البرمجة لسهولة التعامل معها.
+تعتمد json على طريقة تنسيق تشبة القواميس في بايثون key-value-pair كما موضح في الصورة</p>
+<p><img alt="key-value-pair" src="http://www.json.org/object.gif" /></p>
+<p><strong>الكائنات التي تدعمها json:</strong></p>
+<p><img alt="objects" src="http://www.json.org/value.gif" /></p>
+<h2>طريقة التعامل مع json في بايثون</h2>
+<p>لإستخدام json في بايثون لا تحتاج إلى تحميل أي حزمة فهي من الحزم التي تأتي مع نسخ بايثون منذ الإصدار 2.6 وما فوق.</p>
+<p>لنفترض لدينا ملف user.json يحتوي بداخله على التالي:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ali&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Faki&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">9913</span><span class="p">,</span>
+    <span class="nt">&quot;online&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>أولاً نحتاج لقرائة الملف عن طريق بايثون:</p>
+<div class="highlight"><pre><span class="c">#json_parse.py</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;user.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="n">json_string</span> <span class="o">=</span> <span class="n">json_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+
+<p>الأن لو قمت بطباعة <code>json_string</code> سترى الناتج على شكل سلسلة نصية string ، ولكن كيف أقوم بتحويل السلسلة النصية إلى قاموس؟</p>
+<p>لتحويل السلسلة النصية إلى قاموس سنستخدم دالة <code>loads</code> من حزمة json بهذه الطريقة:</p>
+<div class="highlight"><pre><span class="c">#json_parse.py</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">parsed_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+</pre></div>
+
+
+<p>يمكنك إجراء العمليات المعتادة على  <code>parsed_dict</code> مثل:</p>
+<div class="highlight"><pre><span class="c">#json_parse.py</span>
+<span class="k">print</span><span class="p">(</span><span class="n">parsed_dict</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
+<span class="n">parsed_dict</span><span class="p">[</span><span class="s">&quot;online&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">print</span><span class="p">(</span><span class="n">parsed_dict</span><span class="p">)</span>
+</pre></div>
+
+
+<p>كما تلاحظ قمنا بإجراء تغيير على القاموس ، يمكنك إجراء نفس التغيرات على ملف <code>user.json</code> بإستخدام دالة <code>dumps</code> التي تقوم بتحويل القاموس الى سلسلة نصية ليسهل لاحقاً إجراء التعديل على ملف الjson</p>
+<div class="highlight"><pre><span class="c">#json_parse.py</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parsed_dict</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;user.json&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="n">json_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
 </pre></div>
     </article>
 
