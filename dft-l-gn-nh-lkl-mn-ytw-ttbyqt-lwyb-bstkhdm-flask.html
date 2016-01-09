@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>علي فكي</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="/theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="tags" contents="flask" />
+        <meta name="tags" contents="python" />
+
+
+			<meta property="og:locale" content="ar">
+		<meta property="og:site_name" content="علي فكي">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="/dft-l-gn-nh-lkl-mn-ytw-ttbyqt-lwyb-bstkhdm-flask.html">
+	<meta property="og:title" content="إضافات لا غنى عنها لكل من يطو تطبيقات الويب بإستخدام Flask">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="/http://flask.pocoo.org/static/logo/flask.png">
+	<meta property="article:published_time" content="2016-01-09 18:45:00+03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">الصفحة الرئيسية</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('http://flask.pocoo.org/static/logo/flask.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>إضافات لا غنى عنها لكل من يطو تطبيقات الويب بإستخدام Flask</h1>
+                        <span class="meta">نُشر بواسطة
+                                <a href="/author/ly-fky.html">علي فكي</a>
+                             <br><br>س 09 يناير 2016
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>مؤخرا بدأت بتعلم Flask لتطوير تطبيقات الويب ، Flask هو إطار عمل مصغر(micro framework) لتطوير تطبيقات الويب بإستخدام بايثون ما يميز flask عن بقية أطر العمل المشهورة الأخرى مثل django هو أنه يتيح لك البدء بأقل الإمكانيات ثم تكبر تدريجياً كلما تقدمت أكثر.
+قوة flask تكمن في الأضافات الخاصة به لأنه يأتي بأدوات بسيطة تتيح لك البدء بسرعة بدون الدخول في التفاصيل المعقدة مثل مكتبة للتعامل خادم wsgi ومحرك قوالب (template engine) وبعض الأشياء الأخرى.
+وهنا سوف أعرض بعض الإضافات المهمة.</p>
+<h2>1- Flask-SQLAlchemy</h2>
+<p>ومن لم يسمع بهذه الإضافة؟ تعتبر flask-sqlalchemy من أشهر الإضافات بين مطوري flask تعمل هذه الإضافة كـ wrapper حول Sqlalchemy والتي هي ORM للتعامل مع قواعد البيانات تُسهل لك هذه الإضافة الكثير من الإعدادات وتجعلك تبرمج بدون صداع.
+الموقع الرسمي والتوثيق:</p>
+<p><a href="http://flask-sqlalchemy.pocoo.org">flask-sqlalchemy</a></p>
+<h2>2- Flask-MongoAlchemy</h2>
+<blockquote>
+<p>لكن ماذا أفعل لو كنت أريد استعمال قاعدة بيانات من نوع NoSql مثل mongoDB</p>
+</blockquote>
+<p>هذه الإضافة تقوم بنفس ما تقوم به flask-sqlalchemy لكنها موجهة الى mongoDB</p>
+<p>الموقع الرسمي والتوثيق</p>
+<p><a href="https://pythonhosted.org/Flask-MongoAlchemy">mongo-alchemy</a></p>
+<h2>3- Flask-login</h2>
+<p>مهمة هذه الإضافة هي تسهيل التعامل مع الجلسات(sessions) الخاصة بمستخدمي الموقع بالإضافة إلى بعض المهام الشائعة عند بناء نظام تسجيل دخول للمستخدمين ، هذه الإضافة لا تتعامل مع تخزين المستخدمين في قاعدة البيانات.</p>
+<p>الموقع الرسمي والتوثيق:</p>
+<p><a href="https://flask-login.readthedocs.org/en/latest">flask-login</a></p>
+<h2>4- Flask-Migrate</h2>
+<p>هذه الإضافة تسهل لك عملية الـ database migration لتحديث جداول قاعدة البيانات أو الرجوع لنسخة أقدم بدون خسارة البيانات الحالية.</p>
+<p>الموقع الرسمي والتوثيق:</p>
+<p><a href="https://flask-migrate.readthedocs.org">flask-migrate</a></p>
+<h2>5- Flask-WTF</h2>
+<p><img alt="wtf" src="http://i.imgur.com/n0tKD7S.jpg" /></p>
+<p>ههه لا ليس كما ظننت WTF هي إختصار ل WTForms وهو يعمل كمولد (html form generator) حيث تقوم بالعديد من المهام الإعتيادية مثل حماية ال form بإستخدام الcsrf token والعديد من الوظائف الأخرى
+الموقع الرسمي والتوثيق</p>
+<p><a href="http://flask-wtf.readthedocs.org">flask-wtf</a></p>
+<h2>6- Flask-Bcrypt</h2>
+<p>تقريباً لا يخلو أي تطبيق ويب من تخزين بيانات حساسة ككلمات المرور وظيفة flask-bcrypt هي عمل one way hashing لكلمات المرور حتى يتم تخزينها بأمان في قاعدة البيانات.
+الموقع الرسمي والتوثيق</p>
+<p><a href="http://flask-bcrypt.readthedocs.org">flask-bcrypt</a></p>
+<h2>7- Flask-Mail</h2>
+<p>عند البدء في برمجة الموقع قد تحتاج إرسال بريد إلكتروني إلى مستخدمي الموقع مثل بريد التفعيل الإلكتروني ، إستعادة كلمة المرور ، مستجدات الموقع وغيرها flask-mail تجعل إرسال رسائل البريد الإلكتروني اسهل مما تتخيل
+الموقع الرسمي والتوثيق
+<a href="https://pythonhosted.org/Flask-Mail/">flask-mail</a></p>
+<h2>8- Flask-Gravatar</h2>
+<p>نختم هذا المقال بهذه الأداة البسيطة(والمفيدة) مهمتها هي جلب صور المستخدمين من موقع <a href="http://gravatar.com">gravatar</a> الشهير
+كلما عليك فعله هو نقل هذا الكود إلى الملف الذي به كائن <code>Flask</code> الأساسي</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask.ext.gravatar</span> <span class="kn">import</span> <span class="n">Gravatar</span>
+<span class="n">gravatar</span> <span class="o">=</span> <span class="n">Gravatar</span><span class="p">(</span><span class="n">app</span><span class="p">,</span>
+                    <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                    <span class="n">rating</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span>
+                    <span class="n">default</span><span class="o">=</span><span class="s">&#39;retro&#39;</span><span class="p">,</span>
+                    <span class="p">)</span>
+</pre></div>
+
+
+<p>ومن ثم في ملف ال html</p>
+<div class="highlight"><pre><span class="x">&lt;img src=&quot;</span><span class="cp">{{</span> <span class="s1">&#39;testEmail@domain.com&#39;</span> <span class="o">|</span> <span class="nf">gravatar</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+</pre></div>
+
+
+<p>وستظهر لك الصورة المقترنة بالبريد الإلكتروني</p>
+<p><strong>ملاحظة</strong> : الأقواس المعقوفة خاصة بمحرك القوالب jinja2 لكي يتمكن من توليد محتوى ديناميكي</p>
+<h2>خاتمة</h2>
+<p>تعرفنا في هذا المقال على اشهر إضافات Flask وما هي وظيفتها ، وسأقوم بالكتابة عن كل منها بالتفصيل في المستقبل إن شاء الله.</p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/alifaki077">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://web.facebook.com/ali.abdualrhman1">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://github.com/afaki077">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
