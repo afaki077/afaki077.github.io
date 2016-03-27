@@ -1,0 +1,150 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'uglify', '-g' ]
+2 info using npm@2.14.20
+3 info using node@v4.4.0
+4 verbose install initial load of /usr/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/lib/package.json
+6 silly cache add args [ 'uglify', null ]
+7 verbose cache add spec uglify
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'uglify',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'uglify',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed uglify@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for uglify
+11 info addNameTag [ 'uglify', 'latest' ]
+12 silly mapToRegistry name uglify
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/uglify
+16 verbose addNameTag registry:https://registry.npmjs.org/uglify not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/uglify
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 9:19:07 PM
+20 verbose request id b56e58425e80a5de
+21 verbose etag "DQEMJD4SOKIYASZF6LZ6NNMOP"
+22 http request GET https://registry.npmjs.org/uglify
+23 http 304 https://registry.npmjs.org/uglify
+24 verbose headers { date: 'Sun, 27 Mar 2016 18:19:18 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   etag: '"DQEMJD4SOKIYASZF6LZ6NNMOP"',
+24 verbose headers   age: '0',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-lcy1130-LCY',
+24 verbose headers   'x-cache': 'MISS',
+24 verbose headers   'x-cache-hits': '0',
+24 verbose headers   'x-timer': 'S1459102758.625393,VS0,VE726',
+24 verbose headers   vary: 'Accept' }
+25 silly get cb [ 304,
+25 silly get   { date: 'Sun, 27 Mar 2016 18:19:18 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     etag: '"DQEMJD4SOKIYASZF6LZ6NNMOP"',
+25 silly get     age: '0',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-lcy1130-LCY',
+25 silly get     'x-cache': 'MISS',
+25 silly get     'x-cache-hits': '0',
+25 silly get     'x-timer': 'S1459102758.625393,VS0,VE726',
+25 silly get     vary: 'Accept' } ]
+26 verbose etag https://registry.npmjs.org/uglify from cache
+27 verbose get saving uglify to /home/ali/.npm/registry.npmjs.org/uglify/.cache.json
+28 verbose correctMkdir /home/ali/.npm correctMkdir not in flight; initializing
+29 silly addNameTag next cb for uglify with tag latest
+30 silly addNamed uglify@0.1.5
+31 verbose addNamed "0.1.5" is a plain semver version for uglify
+32 silly cache afterAdd uglify@0.1.5
+33 verbose afterAdd /home/ali/.npm/uglify/0.1.5/package/package.json not in flight; writing
+34 verbose correctMkdir /home/ali/.npm correctMkdir not in flight; initializing
+35 verbose afterAdd /home/ali/.npm/uglify/0.1.5/package/package.json written
+36 silly install resolved [ { name: 'uglify',
+36 silly install resolved     description: 'A simple tool to uglify javascript & css files',
+36 silly install resolved     version: '0.1.5',
+36 silly install resolved     author: { name: 'Tom.Huang', email: 'hzlhu.dargon@gmail.com' },
+36 silly install resolved     dependencies:
+36 silly install resolved      { underscore: '1.4.x',
+36 silly install resolved        'underscore.string': '2.3.3',
+36 silly install resolved        commander: '*',
+36 silly install resolved        grunt: '0.4.5',
+36 silly install resolved        'grunt-contrib-concat': '0.3.0',
+36 silly install resolved        'grunt-contrib-uglify': '0.2.4',
+36 silly install resolved        'grunt-css-url-replace': '*',
+36 silly install resolved        'grunt-contrib-cssmin': '0.6.1',
+36 silly install resolved        'grunt-contrib-copy': '0.5.0',
+36 silly install resolved        'grunt-contrib-clean': '0.5.0' },
+36 silly install resolved     keys: [ 'javascript', 'css', 'uglify', 'web' ],
+36 silly install resolved     bin: { uglify: './bin/uglify' },
+36 silly install resolved     repository: { type: 'git', url: 'git://github.com/nanjingboy/uglify.git' },
+36 silly install resolved     gitHead: 'fff007afb2c50fc6f6475ce05073d4ed1fcabb88',
+36 silly install resolved     bugs: { url: 'https://github.com/nanjingboy/uglify/issues' },
+36 silly install resolved     homepage: 'https://github.com/nanjingboy/uglify',
+36 silly install resolved     _id: 'uglify@0.1.5',
+36 silly install resolved     scripts: {},
+36 silly install resolved     _shasum: '888d57efbd1bfa7fad89e11d069975e9682d54d2',
+36 silly install resolved     _from: 'uglify@latest',
+36 silly install resolved     _npmVersion: '2.7.4',
+36 silly install resolved     _nodeVersion: '0.12.2',
+36 silly install resolved     _npmUser: { name: 'tom21joy', email: 'hzlhu.dargon@gmail.com' },
+36 silly install resolved     dist:
+36 silly install resolved      { shasum: '888d57efbd1bfa7fad89e11d069975e9682d54d2',
+36 silly install resolved        tarball: 'http://registry.npmjs.org/uglify/-/uglify-0.1.5.tgz' },
+36 silly install resolved     maintainers: [ [Object] ],
+36 silly install resolved     directories: {},
+36 silly install resolved     _resolved: 'https://registry.npmjs.org/uglify/-/uglify-0.1.5.tgz',
+36 silly install resolved     readme: 'ERROR: No README data found!' } ]
+37 info install uglify@0.1.5 into /usr/lib
+38 info installOne uglify@0.1.5
+39 verbose installOne of uglify to /usr/lib not in flight; installing
+40 verbose correctMkdir /home/ali/.npm/_locks correctMkdir not in flight; initializing
+41 verbose lock using /home/ali/.npm/_locks/uglify-a294a99792fcf41a.lock for /usr/lib/node_modules/uglify
+42 silly install write writing uglify 0.1.5 to /usr/lib/node_modules/uglify
+43 verbose unbuild lib/node_modules/uglify
+44 silly gentlyRm /usr/lib/node_modules/uglify is being purged from base /usr
+45 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/uglify
+46 verbose tar unpack /home/ali/.npm/uglify/0.1.5/package.tgz
+47 verbose tar unpacking to /usr/lib/node_modules/uglify
+48 silly gentlyRm /usr/lib/node_modules/uglify is being purged
+49 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/uglify
+50 silly gunzTarPerm modes [ '775', '664' ]
+51 error tar.unpack untar error /home/ali/.npm/uglify/0.1.5/package.tgz
+52 verbose unlock done using /home/ali/.npm/_locks/uglify-a294a99792fcf41a.lock for /usr/lib/node_modules/uglify
+53 verbose fstream_path /usr/lib/node_modules/uglify
+54 verbose fstream_type Directory
+55 verbose fstream_class DirWriter
+56 verbose stack Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/uglify'
+56 verbose stack     at Error (native)
+57 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+57 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+57 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+58 verbose cwd /home/ali/blog/clean-blog/static/css
+59 error Linux 3.19.0-39-generic
+60 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "uglify" "-g"
+61 error node v4.4.0
+62 error npm  v2.14.20
+63 error path /usr/lib/node_modules/uglify
+64 error code EACCES
+65 error errno -13
+66 error syscall mkdir
+67 error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/uglify'
+67 error     at Error (native)
+67 error  { [Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/uglify']
+67 error   errno: -13,
+67 error   code: 'EACCES',
+67 error   syscall: 'mkdir',
+67 error   path: '/usr/lib/node_modules/uglify',
+67 error   fstream_type: 'Directory',
+67 error   fstream_path: '/usr/lib/node_modules/uglify',
+67 error   fstream_class: 'DirWriter',
+67 error   fstream_stack:
+67 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+67 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+67 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+68 error Please try running this command again as root/Administrator.
+69 verbose exit [ -13, true ]
+70 verbose unbuild lib/node_modules/uglify
+71 silly gentlyRm /usr/lib/node_modules/uglify is being purged from base /usr
+72 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/uglify
