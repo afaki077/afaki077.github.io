@@ -417,3 +417,10 @@ article p{
     cursor: pointer;
     color: #fff;
 }
+
+.snow-collecter{
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+}
