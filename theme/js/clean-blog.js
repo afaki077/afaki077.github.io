@@ -13,13 +13,6 @@ $(function() {
     $('.slide-down').click(function () {
         $("html, body").animate({ scrollTop: $("header").height() }, 1000);
     })
-
-    $(document).snowfall({
-        collection : '.snow-collecter',
-        round: true,
-        minSize: 10,
-        maxSize: 15,
-    });
     //End Custom
 
     $("input,textarea").jqBootstrapValidation({
