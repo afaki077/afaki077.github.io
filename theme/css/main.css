@@ -1,0 +1,145 @@
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6, a, strong, dd, dt{
+    font-family: "Droid Arabic Kufi", serif;
+}
+
+dd{
+    font-weight: lighter;
+}
+
+code{
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+blockquote {
+  color: #808080;
+  font-style: italic;
+  border-right: 3px solid #e9e9e9;
+}
+
+blockquote p{
+    margin: 30px;
+}
+
+article a{
+    text-decoration: underline;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.centered{
+    padding-left: 200px;
+    padding-right: 200px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .centered{
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .centered{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .centered{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+.navbar ul{
+    list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.navbar li{
+    display:inline-block;
+	margin: 1px;
+}
+.navbar li a{
+    display:block;
+	min-width:100px;
+    max-height: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-family: "Droid Arabic Kufi", serif;
+	color: #000;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 2px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.navbar li:hover a {
+	background-color: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.article_date{
+    font-family: "Droid Arabic Kufi", serif;
+}
+
+.article_title:hover a{
+    border-bottom: 1px solid #000;
+}
+
+.article_summary{
+    font-family: "Droid Arabic Naskh", serif;
+}
+
+article{
+    font-family: "Droid Arabic Naskh", serif;
+}
+
+.article_date{
+    color: #808080;
+    font-style: italic;
+}
+
+.highlight{
+    direction: ltr;
+    font-size: 15px;
+}
