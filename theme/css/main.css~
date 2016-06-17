@@ -143,6 +143,7 @@ article{
     direction: ltr;
     font-size: 15px;
 }
-img, embed{
+
+img{
     max-width: 100%;
 }
