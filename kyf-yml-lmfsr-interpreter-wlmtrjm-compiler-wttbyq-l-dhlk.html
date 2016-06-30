@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>    مدونة علي فكي - كيف يعمل المفسر (interpreter) والمترجم (compiler) وتطبيق على ذلك
+</title>
+
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link href='http://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css">
+        <link href="/theme/css/code_blocks/darkly.css" rel="stylesheet">
+  </head>
+  <body>
+      <center>
+          <div class="meta">
+              <div class="header">
+                  <h1>مدونة علي فكي</h1>
+              </div>
+              <div class="navbar">
+                  <ul>
+                      <li><a href="/">الرئيسية</a></li>
+                      <li><a href="/tags">الوسوم</a></li>
+                      <li><a href="/archives">اﻹرشيف</a></li>
+                  </ul>
+              </div>
+          </div>
+      </center>
+
+      <div class="container">
+<div class="centered">
+    <div class="article_title">
+        <h1>كيف يعمل المفسر (interpreter) والمترجم (compiler) وتطبيق على ذلك</h1>
+    </div>
+
+    <div class="article_date">
+        01 يوليو 2016
+    </div>
+
+    <div class="article_tags">
+            <span class="tag" dir="ltr">
+                <a href="/tag/interpreter.html"> #interpreter </a>
+            </span>
+            <span class="tag" dir="ltr">
+                <a href="/tag/compiler.html"> #compiler </a>
+            </span>
+            <span class="tag" dir="ltr">
+                <a href="/tag/vsi.html"> #vsi </a>
+            </span>
+    </div>
+
+    <article>
+        <p>هل تساءلت من قبل كيف يعمل المفسر / المترجم من قبل ؟ كيف يحول تلك الأسطر البرمجية إلى شئ يفهمه الحاسوب ويتعامل معه.</p>
+<p>ربما بحثت عن الأمر وأشبعت فضولك ، أو ربما بحثت ولم تفهم جيداً كيف يتم ذلك ، أو حتى لم تبحث من الأساس.</p>
+<p>على كل حال سأحاول في هذه التدوينة شرح كيف يعمل المفسر / المترجم بإختصار ، بالطبع لن أذكر كل التفاصيل الدقيقة فهذا يحتاج كتاب بأكمله (ربما أكثر).</p>
+<p>حسناّ لنبدأ بالأساسيات</p>
+<h2>ما هو المفسر وما هو المترجم</h2>
+<p>الحاسوب كما تعرف فهو آلة لا تفهم لغات البشر عالية المستوى high level ولكنها تفهم لغة منخفضة المستوى low level تسمى لغة الآلة machine language.</p>
+<p>لغة الآلة ليست مثل لغات البشر فهي لا تتكون إلا من سلسلة طويلة من الأصفار والواحدات 0 و 1 ولسد هذه الفجوة بين البشر والحاسوب أٌنشئ المفسر والمترجم ، على هذا المفهوم يمكن تعريف المفسر والمترجم على أنهما <strong>أدوات تحول البرامج المكتوبة بلغات البشر عالية المستوى إلى لغة الآلة</strong>.</p>
+<p>للمفسر والمترجم نفس الهدف ولكن يتم تنفيذه بطريقة مختلفة فالمفسر ينفذ البرنامج في كل مرة يٌستدعى فيها أما المترجم لا ينفذ البرنامج إنما يحوله الى لغة ليتم تنفيذه لاحقاً و لهذه الطرق  مزايا عيوب كما سأذكر لاحقاً.</p>
+<p><strong>ولكن كيف يتم ذلك؟</strong></p>
+<p>يتم ذلك في ثلاث خطوات اساسية وقد تزيد في بعض الحالات:</p>
+<ol>
+<li>lexing  (<em>هل لديك ترجمة مناسبة؟</em>)</li>
+<li>التحليل parsing</li>
+<li>التنفيذ / الترجمة إلى لغة الآلة</li>
+</ol>
+<h2>lexing</h2>
+<p>في هذه الخطوة يُحول الملف الذي يحوي البرنامج الى سلسلة من الرموز tokens ليسهل التعامل معها بدلاً  ويتم ايضاً التخلص من الأشياء التي لا تدخل في تنفيذ البرنامج مثل التعليقات comments والمساحات البيضاء whitespaces</p>
+<p>لنأخذ مثلاُ هذه الشفرة</p>
+<div class="highlight"><pre>// comment
+var x = 12 + 2 * 3;
+</pre></div>
+
+
+<p>عند عمل lexing  لهذه الشفرة فأن الناتج سيكون شئ مشابه لهذا</p>
+<div class="highlight"><pre>[[&quot;keyword&quot;, &quot;var&quot;], [&quot;id&quot;, &quot;x&quot;], [&quot;symbol&quot;, &quot;=&quot;], [&quot;int&quot;, 4], [&quot;operator&quot;, &quot;+&quot;],
+[&quot;int&quot;, &quot;2&quot;), [&quot;operator&quot;, &quot;*&quot;], [&quot;int&quot;, &quot;3&quot;]]
+</pre></div>
+
+
+<p>في كل من المصفوفات الاتية العنصر الأول هو نوع ال token والعنصر الثاني القيمة</p>
+<p>حيث أن:</p>
+<p>keyword تعني كلمة محجوزة من اللغة</p>
+<p>id ما يُعرفه المستخدم مثل المتغيرات الدوال وغيرها</p>
+<p>symbol  رمز</p>
+<p>int عدد صحيح</p>
+<p>operator  عملية حسابية أو منطقية مثل الجمع ، الطرح ، الضرب وغيرها ...</p>
+<h2>التحليل parsing</h2>
+<p>بعد الانتهاء من تحويل الملف الى tokens تمرر ال tokens إلى المحلل parser ليُكون منها شجرة التحليل parse tree وتسمى أيضاً abstract syntax tree إختصاراً AST</p>
+<p>بأخذ الtokens التي تم تكوينها سابقاً ستكون AST  بشكل مشابه لهذا</p>
+<div class="highlight"><pre>variable
+    name: x
+    value: 2
+variable
+    name: y
+    value:
+        +
+            12
+            *
+                2
+                3
+</pre></div>
+
+
+<p>لاحظ في العمليات الحسابية أن العملية تكون هي الأب في الشجرة ويكون أطراف العملية أبناء لها</p>
+<h2>التنفيذ / الترجمة إلى لغة الآلة</h2>
+<p>في هذه المرحلة يختلف المفسر والمترجم</p>
+<h3>المفسر</h3>
+<p>ينفذ التعليمات مباشرة.</p>
+<h4>المزايا</h4>
+<ol>
+<li>المحمولية بمعنى أن البرنامج سيعمل على أجهزة و / أو أنظمة مختلفة بدون تدخل المبرمج</li>
+</ol>
+<h4>العيوب</h4>
+<ol>
+<li>البطء في التنفيذ لأن المفسر سينفذ التعليمات في كل مرة يستدعى فيها</li>
+</ol>
+<h3>المترجم</h3>
+<p>يحول البرنامج إلى لغة الآلة</p>
+<h4>المزايا</h4>
+<ol>
+<li>السرعة في التنفيذ لأن البرنامج يُحول إلى لغة الآلة مباشرة</li>
+</ol>
+<h4>العيوب</h4>
+<ol>
+<li>المبرمج عليه ترجمة البرنامج لمختلف الأجهزة و / أو الأنظمة والتأكد من عمل البرنامج بشكل صحيح</li>
+</ol>
+<h2>التطبيق</h2>
+<p>قمت بتجربة بسيطة وهي عمل مفسر interpreter بسيط بلغة بايثون</p>
+<p>تجد الكود المصدري وتعليمات التحميل وطريقة الإستخدام على <a href="https://github.com/afaki077/vsi">github</a></p>
+<p><strong>ملاحظة</strong>:  المفسر ما زال في نسخته الأولية وبه الكثير من الأخطاء والنواقص سأكون شاكر لو ساعدتني على التطوير في githun</p>
+<h1>الخاتمة</h1>
+<p>تعرفنا على طريقة عمل المفسر والمترجم في هذا المقال لا تتردد في طرح أي تعليق ، استفسار أو سؤال في التعليقات في الأسفل</p>
+    </article>
+
+    <div class="comments">
+        <h1>التعليقات !</h1>
+<div id="disqus_thread"></div>
+<script>
+
+(function() {
+var d = document, s = d.createElement('script');
+s.src = '//afaki077.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//afaki077.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    </div>
+</div>
+      </div>
+
+      <script src="/theme/js/main.js"></script>
+  </body>
+</html>

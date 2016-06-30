@@ -4,7 +4,7 @@ a{
 }
 
 a:hover{
-    text-decoration: underline;
+    background-color: #eeeeee;
 }
 h1, h2, h3, h4, h5, h6, a, strong, dd, dt{
     font-family: "Droid Arabic Kufi", serif;
@@ -123,7 +123,8 @@ article a{
 }
 
 .article_title:hover a{
-    border-bottom: 1px solid #000;
+    display: block;
+    background-color: #eeeeee;
 }
 
 .article_summary{
